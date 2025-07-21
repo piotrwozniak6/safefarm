@@ -1,27 +1,28 @@
-import maplibregl from 'maplibre-gl';
-import { useEffect, useRef } from 'react';
-import 'maplibre-gl/dist/maplibre-gl.css';
+"use client";
 
-export default function RedMap() {
-  const mapRef = useRef(null);
+import { useRef, useEffect } from "react";
+import maplibregl from "maplibre-gl";
+
+export default function MapComponent() {
+  const mapContainer = useRef(null);
 
   useEffect(() => {
-    if (!mapRef.current) return;
-
     const map = new maplibregl.Map({
-      container: mapRef.current,
-      style: '/redStreetsMap.json', // <-- this loads your custom style
-      center: [105.854444, 21.028511], // Hanoi
-      zoom: 6
+      container: mapContainer.current!,
+      style: "/map-style.json", // ✅ This loads your custom style from /public/
+      center: [105.8544441, 21.028511], // example: Hanoi
+      zoom: 6,
     });
+
+    map.addControl(new maplibregl.NavigationControl(), "top-right");
 
     return () => map.remove();
   }, []);
 
   return (
     <div
-      ref={mapRef}
-      className="w-full h-[600px] rounded-xl mt-6"
+      ref={mapContainer}
+      className="w-full h-[500px] rounded-xl overflow-hidden shadow-md"
     />
   );
 }
