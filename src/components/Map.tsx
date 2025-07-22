@@ -9,10 +9,10 @@ export default function MapComponent() {
   useEffect(() => {
     const map = new maplibregl.Map({
       container: mapContainer.current!,
-      style: "/map-style.json", // ✅ This loads your custom style from /public/
-      center: [105.8544441, 21.028511], // example: Hanoi
-      zoom: 6,
-    });
+      style: "/map-style.json",
+      center: [105.8544441, 21.028511], // Hanoi center
+      zoom: 11.5, // ✅ Zoom in closer like your screenshot
+    });    
 
     map.addControl(new maplibregl.NavigationControl(), "top-right");
 
