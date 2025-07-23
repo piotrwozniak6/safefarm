@@ -1,5 +1,5 @@
 // Mock data for organic places in Hanoi
-const mockPlaces = [
+const mockPlacesFullWindow = [
   {
     id: '1',
     name: 'Bảo Tàng I-Museum',
@@ -41,4 +41,4 @@ const mockPlaces = [
   },
 ];
 
-export default mockPlaces; 
+export default mockPlacesFullWindow; 

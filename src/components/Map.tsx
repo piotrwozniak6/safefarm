@@ -7,12 +7,17 @@ import mockPlaces from "../lib/mockPlaces";
 import Image from "next/image";
 import Link from "next/link";
 
+// Helper to parse "dd-mm-yyyy" string into Date object
+function parseVietnameseDate(dateStr: string): Date {
+  const [day, month, year] = dateStr.split("-").map(Number);
+  return new Date(year, month - 1, day);
+}
+
 export default function CustomMap() {
   const [selectedPlace, setSelectedPlace] = useState(null);
-  const [verificationFilter, setVerificationFilter] = useState("All verified");
+  const [verificationFilter, setVerificationFilter] = useState("All verified (Tested in last 90 days)");
   const popupRef = useRef(null);
 
-  // Close popup when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (popupRef.current && !popupRef.current.contains(e.target)) {
@@ -23,14 +28,13 @@ export default function CustomMap() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Filtering logic
   const filteredPlaces = mockPlaces.filter((place) => {
     if (verificationFilter === "Tested in last 30 days") {
       const today = new Date();
       const thirtyDaysAgo = new Date();
       thirtyDaysAgo.setDate(today.getDate() - 30);
 
-      const testedDate = new Date(place.lastTested);
+      const testedDate = parseVietnameseDate(place.lastTested);
       return testedDate >= thirtyDaysAgo && testedDate <= today;
     }
     return true;
@@ -140,7 +144,7 @@ export default function CustomMap() {
                 />
                 <span>
                   Last tested:{" "}
-                  {new Date(selectedPlace.lastTested).toLocaleDateString("en-GB")}
+                  {parseVietnameseDate(selectedPlace.lastTested).toLocaleDateString("en-GB")}
                 </span>
               </div>
 
