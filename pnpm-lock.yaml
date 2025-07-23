@@ -5,9 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  lucide-react:
+    specifier: ^0.525.0
+    version: 0.525.0(react@18.2.0)
   maplibre-gl:
-    specifier: ^3.6.1
-    version: 3.6.1
+    specifier: ^3.6.2
+    version: 3.6.2
   next:
     specifier: 13.4.19
     version: 13.4.19(react-dom@18.2.0)(react@18.2.0)
@@ -20,6 +23,9 @@ dependencies:
   react-icons:
     specifier: ^5.5.0
     version: 5.5.0(react@18.2.0)
+  react-map-gl:
+    specifier: ^8.0.4
+    version: 8.0.4(maplibre-gl@3.6.2)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/node':
@@ -294,6 +300,36 @@ packages:
     resolution: {integrity: sha512-Z0pOY34GDFl3Q6hUFYf3HkTwKEE02e7QgtJppBt+beEAxnyOpJua+voGFvxINBHa06GwLFFym7gRPY2SiKIfIA==}
     dependencies:
       '@types/geojson': 7946.0.16
+    dev: false
+
+  /@vis.gl/react-mapbox@8.0.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-NFk0vsWcNzSs0YCsVdt2100Zli9QWR+pje8DacpLkkGEAXFaJsFtI1oKD0Hatiate4/iAIW39SQHhgfhbeEPfQ==}
+    peerDependencies:
+      mapbox-gl: '>=3.5.0'
+      react: '>=16.3.0'
+      react-dom: '>=16.3.0'
+    peerDependenciesMeta:
+      mapbox-gl:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@vis.gl/react-maplibre@8.0.4(maplibre-gl@3.6.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-HwZyfLjEu+y1mUFvwDAkVxinGm8fEegaWN+O8np/WZ2Sqe5Lv6OXFpV6GWz9LOEvBYMbGuGk1FQdejo+4HCJ5w==}
+    peerDependencies:
+      maplibre-gl: '>=4.0.0'
+      react: '>=16.3.0'
+      react-dom: '>=16.3.0'
+    peerDependenciesMeta:
+      maplibre-gl:
+        optional: true
+    dependencies:
+      '@maplibre/maplibre-gl-style-spec': 19.3.3
+      maplibre-gl: 3.6.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /ansi-regex@5.0.1:
@@ -765,8 +801,16 @@ packages:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
     dev: true
 
-  /maplibre-gl@3.6.1:
-    resolution: {integrity: sha512-XQpLkNTD6WYJXqF7vTxgHbAyShoZMm5o8fohXCn9PC/S/g3zBk92m7GUsN6KfuECh2rO01uiYbSNCSURkOODyQ==}
+  /lucide-react@0.525.0(react@18.2.0):
+    resolution: {integrity: sha512-Tm1txJ2OkymCGkvwoHt33Y2JpN5xucVq1slHcgE6Lk0WjDfjgKWor5CdVER8U6DvcfMwh4M8XxmpTiyzfmfDYQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /maplibre-gl@3.6.2:
+    resolution: {integrity: sha512-krg2KFIdOpLPngONDhP6ixCoWl5kbdMINP0moMSJFVX7wX1Clm2M9hlNKXS8vBGlVWwR5R3ZfI6IPrYz7c+aCQ==}
     engines: {node: '>=16.14.0', npm: '>=8.1.0'}
     dependencies:
       '@mapbox/geojson-rewind': 0.5.2
@@ -1073,6 +1117,26 @@ packages:
       react: '*'
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /react-map-gl@8.0.4(maplibre-gl@3.6.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-SHdpvFIvswsZBg6BCPcwY/nbKuCo3sJM1Cj7Sd+gA3gFRFOixD+KtZ2XSuUWq2WySL2emYEXEgrLZoXsV4Ut4Q==}
+    peerDependencies:
+      mapbox-gl: '>=1.13.0'
+      maplibre-gl: '>=1.13.0'
+      react: '>=16.3.0'
+      react-dom: '>=16.3.0'
+    peerDependenciesMeta:
+      mapbox-gl:
+        optional: true
+      maplibre-gl:
+        optional: true
+    dependencies:
+      '@vis.gl/react-mapbox': 8.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@vis.gl/react-maplibre': 8.0.4(maplibre-gl@3.6.2)(react-dom@18.2.0)(react@18.2.0)
+      maplibre-gl: 3.6.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react@18.2.0:
